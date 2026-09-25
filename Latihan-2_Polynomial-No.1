@@ -1,0 +1,68 @@
+>> P1 = [1 5 3 10]
+
+P1 =
+
+     1     5     3    10
+
+>> P2 = [1 7 5 8 15]
+
+P2 =
+
+     1     7     5     8    15
+
+>> P3 = [1 15 10 6 3 9]
+
+P3 =
+
+     1    15    10     6     3     9
+
+>> P1_value2 = polyval(P1,2)
+
+P1_value2 =
+
+    44
+
+>> P2_value2 = polyval(P2,2)
+
+P2_value2 =
+
+   123
+
+>> P3_value3 = polyval(P3,3)
+
+P3_value3 =
+
+        1800
+
+>> a = [P1_value2 P2_value2 P3_value3]
+
+
+a =
+
+          44         123        1800
+
+>> P1P2 = conv(P1,P2)
+
+P1P2 =
+
+     1    12    43    64   140   149   125   150
+
+>> b = conv(P1P2,P3)
+
+b =
+
+  Columns 1 through 7
+
+           1          27         233         835        1605        3192        4381
+
+  Columns 8 through 13
+
+        4934        5390        3957        2616        1575        1350
+
+>> c = deconv(P1P2,P3)
+
+c =
+
+     1    -3    78
+
+>> 
