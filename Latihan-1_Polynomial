@@ -1,0 +1,132 @@
+(Latihan Contoh soal 1.1)
+>> %Polynomial
+p = [1 -2 1] % tulis polynomial sebagai bentuk vektor baris
+
+p =
+
+     1    -2     1
+
+>> % Memcari/Menghitung akar polynomial 
+r = roots(p)
+
+
+r =
+
+     1
+     1
+
+>> pvalue = polyval(p,1)
+
+pvalue =
+
+     0
+
+>> pvalue = polyval(p,2)
+
+pvalue =
+
+     1
+
+>> % penulisan polynomial dalam bentuk simbolik
+>> syms t
+>> sym = t^2-2*t+1
+ 
+sym =
+ 
+t^2 - 2*t + 1
+ 
+>> % Konversi polynomial bentuk simbolik menjadi matriks
+>> poly = sym2poly(sym)
+
+poly =
+
+     1    -2     1
+
+>> % Konversi polynomial bentuk matriks menjadi simbolik
+>> symagain = poly2sym(poly)
+ 
+symagain =
+ 
+x^2 - 2*x + 1
+
+(Latihan Contoh Soal 1.2)
+
+>> p = [1 2 6]
+
+p =
+
+     1     2     6
+
+>> r = roots(p)
+
+r =
+
+  -1.0000 + 2.2361i
+  -1.0000 - 2.2361i
+
+>> pvalue = polyval(p,1)
+
+pvalue =
+
+     9
+
+>> syms t
+>> sym = t^3+2*t+6
+ 
+sym =
+ 
+t^3 + 2*t + 6
+ 
+>> poly = sym2poly(sym) %mengubah polynomial simbolik menjadi matriks polynomial
+
+poly =
+
+     1     0     2     6
+
+>> % Mengubah polynomial simbolik menjadi matriks polynomial
+>> symagain = poly2sym(poly)
+ 
+symagain =
+ 
+x^3 + 2*x + 6
+ 
+>> 
+
+(Latihan Contoh Soal 1.3)
+
+>> syms t
+p = 8*t^6+4*t^5-2*t^3+7*t+2;
+
+>> coeff = coeffs(p)  % Ekstrak koefisien kedalam array
+ 
+coeff =
+ 
+[2, 7, -2, 4, 8]
+ 
+>> 
+
+(Latihan Contoh Soal 1.4)
+
+>> p = [3 2 1]
+
+p =
+
+     3     2     1
+
+>> q = [1 4]
+
+q =
+
+     1     4
+
+>> n = conv(p,q)
+
+n =
+
+     3    14     9     4
+
+>> p_val = polyval(n,-5)
+
+p_val =
+
+   -66
