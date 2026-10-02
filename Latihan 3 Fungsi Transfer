@@ -1,0 +1,87 @@
+contoh Soal 3.1
+>> num = [1 1];
+den = [1 3 1];
+sys = tf(num,den) % membuat fungsi transfer
+sys_zpk = zpk(sys) % Mengubah ke model zpk
+sys =
+s + 1
+-------------
+s^2 + 3 s + 1
+Continuous-time transfer function.
+sys_zpk =
+(s+1)
+-------------------
+(s+2.618) (s+0.382)
+Continuous-time zero/pole/gain model.
+==============
+
+Contoh soal 3.2
+>> z = -2;
+>> p = [-1 -1 -3];
+>> k = 1;
+>> sys = zpk(z,p,k) % membuat model zpk
+sys =
+(s+2)
+-------------
+(s+1)^2 (s+3)
+Continuous-time zero/pole/gain model.
+>> sys_tf = tf(sys) % mengubah ke model fungsi transfer
+sys_tf =
+s + 2
+---------------------
+s^3 + 5 s^2 + 7 s + 3
+Continuous-time transfer function.
+==============
+
+Contoh soal 3.3
+% menetapkan variabel s, sebagai variabel dari fungsi transfer
+>> s = tf('s');
+>> sys = (s+1)/(s^2+2*s+1)
+sys =
+s + 1
+-------------
+s^2 + 2 s + 1
+% Mengembalikan fungsi transfer dalam bentuk terfaktor
+>> s = zpk('s');
+>> sys = (s+1)/(s^2+2*s+1)
+sys =
+(s+1)
+-------
+(s+1)^2
+==============
+
+Contoh Soal 3.4
+% Menetapkan variabel s, sebagai variabel dari fungsi transfer
+>> s = zpk('s');
+>> sys = ((s+2)*(s-1))/(((s+3)^2)*(s-5))
+sys =
+(s+2) (s-1)
+-------------
+(s+3)^2 (s-5)
+% Mengembalikan fungsi transfer dalam bentuk polinomial
+>> s = tf('s');
+>> sys = ((s+2)*(s-1))/(((s+3)^2)*(s-5))
+sys =
+s^2 + s - 2
+---------------------
+s^3 + s^2 - 21 s - 45
+=============
+
+Contoh soal 3.5
+>> num=[6 0 1];
+>> den=[1 3 3 1];
+>> pzmap(num,den)
+>> title('Pole-zero map');
+=============
+
+Contoh Soal 3.6
+>> n1=[1 1];
+>> n2=[1 2];
+>> d1=[1 2*i];
+>> d2=[1 -2*i];
+>> d3=[1 3];
+>> num=conv(n1,n2);
+>> den=conv(d1,conv(d2,d3));
+>> printsys(num,den);
+>> pzmap(num,den);
+>> title('Pole-zero map');
