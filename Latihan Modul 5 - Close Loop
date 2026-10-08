@@ -1,0 +1,93 @@
+__________________________
+% Contoh Soal 5.1
+  G1(s) = 1 / s + 2
+  G2(s) = s / s^2 + 2s + 2
+__________________________
+>> num1 = [1];
+>> den1 = [1 2];
+>> num2 = [1 0];
+>> den2 = [1 2 2];
+>> [num,den] = feedback(num1,den1,num2,den2)
+
+num = 1×4
+     0     1     2     2
+
+
+den = 1×4
+     1     4     7     4
+
+>> printsys(num,den)
+
+sys = 
+
+      s^2 + 2 s + 2
+  ---------------------
+  s^3 + 4 s^2 + 7 s + 4
+ 
+Continuous-time transfer function.
+Model Properties
+>> sys1 = tf(num1,den1)
+
+sys1 = 
+
+    1
+  -----
+  s + 2
+ 
+Continuous-time transfer function.
+Model Properties
+>> sys2 = tf(num2,den2)
+
+sys2 = 
+
+        s
+  -------------
+  s^2 + 2 s + 2
+ 
+Continuous-time transfer function.
+Model Properties
+>> sys3 = feedback(sys1,sys2)
+
+sys3 = 
+
+      s^2 + 2 s + 2
+  ---------------------
+  s^3 + 4 s^2 + 7 s + 4
+ 
+Continuous-time transfer function.
+Model Properties
+>> 
+
+______________________________
+% Contoh Soal 5.2
+  G1(s) = s + 2 / s^2 + 4s + 3
+  G2(s) = 1 / s + 1
+  G3(s) = s / s + 2
+______________________________
+>> % fungsi transfer sistem 1,2 dan 3
+>> G1 = tf([1 2],[1 4 3]);
+>> G2 = tf(1,[1 1]);
+>> G3 = tf(1,[1 2]);
+>> % Hitunglah fungsi transfer 1,2
+>> G12 = series(G1,G2)
+
+G12 = 
+
+          s + 2
+  ---------------------
+  s^3 + 5 s^2 + 7 s + 3
+ 
+Continuous-time transfer function.
+Model Properties
+>> % Hitunglah fungsi transfer final
+>> T = feedback(G12,G3)
+
+T = 
+
+           s^2 + 4 s + 4
+  -------------------------------
+  s^4 + 7 s^3 + 17 s^2 + 18 s + 8
+ 
+Continuous-time transfer function.
+Model Properties
+>> 
