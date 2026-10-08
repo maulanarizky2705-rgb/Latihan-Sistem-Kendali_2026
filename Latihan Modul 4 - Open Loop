@@ -1,0 +1,149 @@
+________________________
+% Contoh soal nomor 4.1
+  G1(s) = s + 1 / s + 2
+  G2(s) = 1 / 500 s^2
+________________________
+>> num1 = [1 1];
+>> den1 = [1 2];
+>> num2 = [1];
+>> den2 = [500 0 0];
+>> [num,den] = series(num1,den1,num2,den2)
+
+num = 1×4
+     0     0     1     1
+
+
+den = 1×4
+     500     1000     0     0
+
+>> printsys(num,den)
+
+sys = 
+
+        s + 1
+  ------------------
+  500 s^3 + 1000 s^2
+ 
+Continuous-time transfer function.
+Model Properties
+>> sys = tf(num,den)
+
+sys = 
+
+        s + 1
+  ------------------
+  500 s^3 + 1000 s^2
+ 
+Continuous-time transfer function.
+Model Properties
+>> sys1 = tf(num1,den1)
+
+sys1 = 
+
+  s + 1
+  -----
+  s + 2
+ 
+Continuous-time transfer function.
+Model Properties
+>> sys2 = tf(num2,den2)
+
+sys2 = 
+
+     1
+  -------
+  500 s^2
+ 
+Continuous-time transfer function.
+Model Properties
+>> sys3 = series(sys1,sys2)
+
+sys3 = 
+
+        s + 1
+  ------------------
+  500 s^3 + 1000 s^2
+ 
+Continuous-time transfer function.
+Model Properties
+>> sys3b = sys1*sys2
+
+sys3b = 
+
+        s + 1
+  ------------------
+  500 s^3 + 1000 s^2
+ 
+Continuous-time transfer function.
+Model Properties
+>> 
+___________________________
+% Contoh soal 4.2
+  G1(s) = 1 / s + 2
+  G2(s) = s / s^2 + 2s + 2
+___________________________
+>> num1 = [1];
+>> den1 = [1 2];
+>> num2 = [1 0];
+>> den2 = [1 2 2];
+>> [num,den] = parallel(num1,den1,num2,den2)
+
+num = 1×4
+     0     2     4     2
+
+
+den = 1×4
+     1     4     6     4
+
+>> printsys(num,den)
+
+sys = 
+
+     2 s^2 + 4 s + 2
+  ---------------------
+  s^3 + 4 s^2 + 6 s + 4
+ 
+Continuous-time transfer function.
+Model Properties
+
+>> sys1 = tf(num1,den1)
+
+sys1 = 
+
+    1
+  -----
+  s + 2
+ 
+Continuous-time transfer function.
+Model Properties
+>> sys2 = tf(num2,den2)
+
+sys2 = 
+
+        s
+  -------------
+  s^2 + 2 s + 2
+ 
+Continuous-time transfer function.
+Model Properties
+>> sys3 = parallel(sys1,sys2)
+
+sys3 = 
+
+     2 s^2 + 4 s + 2
+  ---------------------
+  s^3 + 4 s^2 + 6 s + 4
+ 
+Continuous-time transfer function.
+Model Properties
+>> sys3b = sys1+sys2
+
+sys3b = 
+
+     2 s^2 + 4 s + 2
+  ---------------------
+  s^3 + 4 s^2 + 6 s + 4
+ 
+Continuous-time transfer function.
+Model Properties
+>> 
